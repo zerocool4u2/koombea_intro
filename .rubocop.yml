@@ -1,0 +1,342 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: ~
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  DisabledByDefault: true
+  Exclude:
+    - '**/tmp/**/*'
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - 'actionpack/lib/action_dispatch/journey/parser.rb'
+    - 'railties/test/fixtures/tmp/**/*'
+    - 'actionmailbox/test/dummy/**/*'
+    - 'actiontext/test/dummy/**/*'
+    - '**/node_modules/**/*'
+
+Performance:
+  Exclude:
+    - '**/test/**/*'
+
+Style/Copyright:
+  Enabled: true
+  Notice: '^# Copyright \(c\) 20[0-9]{2} Alexis Ramis\.$'
+  AutocorrectNotice: "# Copyright (c) 2021 Alexis Ramis.\n# All Rights Reserved\n\n# Overview"
+
+Layout/ClassStructure:
+  Enabled: true
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - scopes
+    - attachments
+    - enums
+    - public_attribute_macros
+    - public_delegate
+    - hooks_and_validations
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_attribute_macros
+    - protected_methods
+    - private_attribute_macros
+    - private_delegate
+    - private_methods
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    scopes:
+      - filterrific
+      - pg_search_scope
+      - scope
+    attachments:
+      - has_one_attached
+      - has_many_attached
+    enums:
+      - enum
+      - translate_enum
+    attribute_macros:
+      - attribute
+      - attr_accessor
+      - attr_reader
+      - attr_writer
+    hooks_and_validations:
+      - belongs_to
+      - has_one
+      - has_many
+      - has_and_belongs_to_many
+      - accepts_nested_attributes_for
+      - after_initialize
+      - before_validation
+      - validates
+      - validate
+      - after_validation
+      - before_create
+      - after_create
+      - before_update
+      - after_update
+      - before_save
+      - after_save
+      - before_destroy
+      - before_destroy_restrictions_for_has_one
+      - before_destroy_restrictions_for_has_many
+      - after_destroy
+
+Layout/EndOfLine:
+  Enabled: true
+  EnforcedStyle: lf
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+# Align `when` with `case`.
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+# Align comments with method definitions.
+Layout/CommentIndentation:
+  Enabled: true
+
+Layout/ElseAlignment:
+  Enabled: true
+
+# Align `end` with the matching keyword or starting expression except for
+# assignments, where it should be aligned with the LHS.
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+  AutoCorrect: true
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+  AutoCorrect: true
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+  EnforcedStyle: indent
+  AutoCorrect: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+
+# In a regular class definition, no empty lines around the body.
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+
+# In a regular method definition, no empty lines around the body.
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+# In a regular module definition, no empty lines around the body.
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+  EnforcedStyle: no_empty_lines
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Arguments
+Layout/FirstArgumentIndentation:
+  Enabled: true
+
+Layout/ArgumentAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Layout/ArrayAlignment:
+  Enabled: true
+  EnforcedStyle: with_fixed_indentation
+
+Layout/IndentationStyle:
+  Enabled: true
+  EnforcedStyle: spaces
+
+# Two spaces, no tabs (for indentation).
+Layout/IndentationWidth:
+  Enabled: true
+  Width: 2
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Enabled: true
+
+Layout/SpaceBeforeComma:
+  Enabled: true
+
+Layout/SpaceBeforeComment:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+
+Style/DefWithParentheses:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+
+Style/RedundantFreeze:
+  Enabled: true
+
+# Use `foo {}` not `foo{}`.
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/BlockEndNewline:
+  Enabled: true
+# Use `foo { bar }` not `foo {bar}`.
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  EnforcedStyleForEmptyBraces: space
+
+# Use `{ a: 1 }` not `{a:1}`.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: compact
+
+# Use `[1, 2, 3]` not `[ 1, 2, 3 ]`.
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  EnforcedStyle: no_space
+
+Layout/SpaceInsideParens:
+  Enabled: true
+
+Layout/SpaceInsideStringInterpolation:
+  Enabled: true
+  EnforcedStyle: space
+
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+# Empty lines should not have any spaces.
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# No trailing whitespace.
+Layout/TrailingWhitespace:
+  Enabled: true
+
+# Use quotes for string literals when they are enough.
+Style/RedundantPercentQ:
+  Enabled: true
+
+Lint/AmbiguousOperator:
+  Enabled: true
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+
+Lint/ErbNewArguments:
+  Enabled: true
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/RedundantStringCoercion:
+  Enabled: true
+
+Lint/UriEscapeUnescape:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/DeprecatedClassMethods:
+  Enabled: true
+
+Style/ParenthesesAroundCondition:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/RedundantBegin:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+  AllowMultipleReturnValues: true
+
+Style/Semicolon:
+  Enabled: true
+  AllowAsExpressionSeparator: true
+
+# Prefer Foo.method over Foo::method
+Style/ColonMethodCall:
+  Enabled: true
+
+Style/TrivialAccessors:
+  Enabled: true
+
+Performance/FlatMap:
+  Enabled: true
+
+Performance/RedundantMerge:
+  Enabled: true
+
+Performance/StartWith:
+  Enabled: true
+
+Performance/EndWith:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Performance/ReverseEach:
+  Enabled: true
+
+Performance/UnfreezeString:
+  Enabled: true
+
+# Style/Documentation:
+#   Enabled: true
+
+# Style/DocumentationMethod:
+#   Enabled: true

@@ -6,19 +6,13 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  - Ruby 3.0.0
 
 * System dependencies
+  - Yarn 1.22.5
 
 * Configuration
+  - create config/master.key file
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database creation and initialization
+  - rails db:setup

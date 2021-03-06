@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  host: localhost
+  enconding: utf8
+  database: koombea
+  username: <%= Rails.application.credentials.production[:database][:username] %>
+  password: <%= Rails.application.credentials.production[:database][:password] %>
+  schema_search_path: public
