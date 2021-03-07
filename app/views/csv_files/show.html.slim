@@ -1,0 +1,16 @@
+= header @csv_file do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb CsvFile.pluralize, csv_files_path
+  = h.buttons
+    = link_to_action :prev, @csv_file, html_class: 'btn btn-outline-primary'
+    = link_to_action :next, @csv_file, html_class: 'btn btn-outline-primary'
+    = link_to_action :edit, @csv_file, html_class: 'btn btn-outline-warning'
+    = link_to_action :destroy, @csv_file, html_class: 'btn btn-outline-danger'
+
+= dbox_for @csv_file do |c|
+  .col-12.col-lg-6
+    section
+      h3 = t(:general, scope: [:admin_helper, :headings])
+      .row
+        .col-12.col-xl-6
+          = c.content :status

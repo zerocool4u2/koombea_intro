@@ -1,0 +1,6 @@
+= header t(:edit, scope: [:admin_helper, :headings], model: @contact) do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb Contact.pluralize, contacts_path
+    = b.breadcrumb @contact, @contact
+
+== render 'form'

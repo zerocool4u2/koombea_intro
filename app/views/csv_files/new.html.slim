@@ -1,0 +1,5 @@
+= header t(:new, scope: [:admin_helper, :headings], model: CsvFile.singularize) do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb CsvFile.pluralize, csv_files_path
+
+== render 'form'

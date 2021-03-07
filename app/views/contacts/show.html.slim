@@ -1,0 +1,28 @@
+= header @contact do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb Contact.pluralize, contacts_path
+  = h.buttons
+    = link_to_action :prev, @contact, html_class: 'btn btn-outline-primary'
+    = link_to_action :next, @contact, html_class: 'btn btn-outline-primary'
+    = link_to_action :edit, @contact, html_class: 'btn btn-outline-warning'
+    = link_to_action :destroy, @contact, html_class: 'btn btn-outline-danger'
+
+= dbox_for @contact do |c|
+  .col-12
+    section
+      h3 = t(:general, scope: [:admin_helper, :headings])
+      .row
+        .col-12.col-xl-6
+          = c.content :name
+        .col-12.col-xl-6
+          = c.content :birthday
+        .col-12.col-xl-6
+          = c.content :phone
+        .col-12.col-xl-6
+          = c.content :address
+        .col-12.col-xl-6
+          = c.content :credit_card_number
+        .col-12.col-xl-6
+          = c.content :email
+        .col-12.col-xl-6
+          = c.content :franchise

@@ -1,6 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  include TranslateEnum
+
   # == Class helpers
   # plural names
   def self.pluralize

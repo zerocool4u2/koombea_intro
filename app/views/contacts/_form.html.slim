@@ -1,0 +1,19 @@
+= simple_form_for @contact do |f|
+  .col-12
+    section
+      h3 = t(:general, scope: [:admin_helper, :headings])
+      .row
+        .col-12.col-xl-6
+          = f.input :name
+        .col-12.col-xl-6
+          = f.input :birthday, as: :tempus_dominus
+        .col-12.col-xl-6
+          = f.input :phone
+        .col-12.col-xl-6
+          = f.input :address
+        .col-12.col-xl-6
+          = f.input :credit_card_number
+        .col-12.col-xl-6
+          = f.input :email
+
+  = f.button :submit, class: 'btn btn-primary float-right'

@@ -132,7 +132,6 @@ SimpleForm.setup do |config|
     end
     b.use :error, wrap_with: { tag: :div, class: 'invalid-feedback' }
     b.use :hint, wrap_with: { tag: :small, class: 'form-text text-muted' }
-    b.use :preview
   end
 
   config.wrappers :image_input, tag: :div, class: 'form-group', error_class: 'has-danger' do |b|

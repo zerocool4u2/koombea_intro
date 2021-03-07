@@ -7,3 +7,6 @@ es:
       contact:
         one: Contacto
         other: Contactos
+      csv_file:
+        one: CSV
+        other: CSVs

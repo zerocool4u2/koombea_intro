@@ -18,9 +18,31 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
   end
 
+  # GET /contacts/new
+  def new
+    @contact = Contact.new
+  end
+
   # GET /contacts/1/edit
   def edit
     @contact = Contact.find(params[:id])
+  end
+
+  # POST /contacts
+  def create
+    @contact = Contact.new(contact_params)
+
+    respond_to do |format|
+      format.html do
+        if @contact.save
+          flash_message_for @contact, :create, type: :notice
+          redirect_to @contact
+        else
+          flash_message_for @contact, :create, request_method: :now, type: :alert
+          render :new
+        end
+      end
+    end
   end
 
   # PATCH/PUT /contacts/1

@@ -8,14 +8,20 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import 'bootstrap'
+import 'bootstrap';
+// import 'moment';
+// import 'tempusdominus-bootstrap-4';
+import 'cocoon-js'
+// import './forms';
 
 import '../stylesheets/application'
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+$(document).on('turbolinks:load', function() {
+    function() {
+       console.log("Hello World!");
+   }
+};

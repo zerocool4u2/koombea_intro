@@ -39,6 +39,7 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'active_storage_validations'
+gem 'credit_card_validator'
 
 # Users
 gem 'devise'
@@ -47,6 +48,7 @@ gem 'devise'
 gem 'draper' # Decorators helper
 gem 'premailer-rails'
 gem 'pagy'
+gem 'translate_enum'
 
 # Google Cloud and ActiveStorage
 gem 'google-cloud-storage'

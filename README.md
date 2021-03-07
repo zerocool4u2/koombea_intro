@@ -15,4 +15,4 @@ Things you may want to cover:
   - create config/master.key file
 
 * Database creation and initialization
-  - rails db:setup
+  - rails db:migrate

@@ -2,3 +2,12 @@ es:
   activerecord:
     attributes:
       hints:
+        csv_file:
+          headers: La primera fila son los encabezados del archivo csv
+          headers_format: El formato de encabezado esperado es 'Nombre', 'Fecha de Nacimiento', 'Teléfono', 'Dirección', 'Tarjeta de Crédito' e 'Email'
+          name_column: Indica en que número del columna se encuentra Nombre en tu archivo csv
+          birthday_column: Indica en que número del columna se encuentra Fecha de Nacimiento en tu archivo csv
+          phone_column: Indica en que número del columna se encuentra Teléfono en tu archivo csv
+          address_column: Indica en que número del columna se encuentra Dirección en tu archivo csv
+          credit_card_number_column: Indica en que número del columna se encuentra Tarjeta de Crédito en tu archivo csv
+          email_column: Indica en que número del columna se encuentra Email en tu archivo csv

@@ -1,0 +1,7 @@
+= header CsvFile.pluralize do |h|
+  = h.breadcrumbs
+  = h.buttons
+    = link_to_action :new, CsvFile, html_class: 'btn btn-outline-primary'
+
+#results
+  = render 'list'
