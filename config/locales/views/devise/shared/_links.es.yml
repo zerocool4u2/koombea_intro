@@ -1,0 +1,6 @@
+es:
+  devise:
+    shared:
+      links:
+        sign_up: Registrarse
+        sign_in: Iniciar Sesión

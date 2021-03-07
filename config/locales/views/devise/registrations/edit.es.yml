@@ -1,0 +1,14 @@
+es:
+  devise:
+    registrations:
+      edit:
+        title: Editar mi Cuenta
+        change_password: Cambiar mi Contraseña
+        labels:
+          password: Nueva Contraseña
+          password_confirmation: Confirmar Nueva Contraseña
+        hints:
+          password: Deja en blanco si no deseas cambiarla
+          password_confirmation: Confirma tu nueva contraseña
+          current_password: Necesitamos tu contraseña actual para confirmar los cambios
+        submit: Actualizar

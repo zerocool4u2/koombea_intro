@@ -1,0 +1,58 @@
+es:
+  errors:
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      confirmation: no coincide
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual a %{count}
+      model_invalid: "la validación falló: %{errors}"
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      other_than: debe ser distinto de %{count}
+      present: debe estar en blanco
+      required: debes seleccionar
+      taken: ya está en uso
+      too_long:
+        one: es demasiado largo (1 carácter máximo)
+        other: es demasiado largo (%{count} caracteres máximo)
+      too_short:
+        one: es demasiado corto (1 carácter mínimo)
+        other: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length:
+        one: no tiene la longitud correcta (1 carácter exacto)
+        other: no tiene la longitud correcta (%{count} caracteres exactos)
+      file_size_out_of_range: el archivo es demasiado grande %{file_size}
+      content_type_invalid: "tiene un formato de archivo invalido: %{content_type}"
+      limit_out_of_range: cuenta con una cantidad de archivos incorrecta, %{min} a %{max} archivos permitidos
+      only_one: selecciona solo uno.
+      select_at_least_one: selecciona al menos un tipo (Producción, Precorte, Despate, Bolones y/o Desquinche)
+      too_few:
+        one: ingresa al menos un elemento
+        other: ingresa al menos %{count} elementos
+      too_many:
+        one: ingresa a lo más un elemento
+        other: ingresa a lo más %{count} elementos
+      too_few_selected:
+        one: selecciona al menos un elemento
+        other: selecciona al menos %{count} elementos
+      too_many_selected:
+        one: selecciona a lo más un elemento
+        other: selecciona a lo más %{count} elementos
+      exactly_selected:
+        one: selecciona solo %{count} elemento
+        other: selecciona solo %{count} elementos
+      record_invalid: "la validación falló: %{errors}"
+      restrict_dependent_destroy:
+        one: no se puede eliminar el registro porque existe 1 %{record} dependiente
+        other: no se puede eliminar el registro porque existen %{count} %{record} dependientes

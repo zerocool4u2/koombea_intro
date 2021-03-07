@@ -1,0 +1,42 @@
+@mixin mail-layout($color, $percentage) {
+  background: linear-gradient(
+    to bottom,
+    lighten($color, $percentage) 0,
+    lighten($color, $percentage) $background-bar-height,
+    $gray-100 $background-bar-height,
+    $gray-100 100%
+  );
+
+  .btn {
+    background-color: $color;
+  }
+}
+
+@mixin btn-outline($color) {
+  background-image: none;
+  color: $color;
+  border-color: $color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color;
+    color: $white;
+    border-color: $color;
+  }
+}
+
+@mixin btn($color) {
+  background-color: $color;
+  background-image: none;
+  color: $white;
+  border-color: $color;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $white;
+    color: $color;
+    border-color: $color;
+  }
+}

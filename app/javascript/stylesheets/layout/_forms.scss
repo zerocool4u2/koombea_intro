@@ -1,0 +1,304 @@
+.form-container {
+  @include make-row();
+
+  &:not(.devise-form):not(.send-report-form) {
+    .form-control {
+      @extend .form-control-sm;
+    }
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  abbr {
+    i {
+      font-size: 0.9rem;
+    }
+  }
+
+  .btn-pasteable {
+    width: 7rem;
+    text-align: center;
+  }
+
+  .pasteable-focused {
+    background-color: rgba($green, 0.15);
+  }
+
+  .form-group,
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+
+  .input-group {
+    height: 1.814rem;
+
+    .input-group-append {
+      .input-group-text {
+        padding: 0.25rem 0.5rem;
+      }
+    }
+  }
+
+  .custom-file {
+    height: $input-height;
+
+    .custom-file-input {
+      height: $input-height;
+    }
+
+    .custom-file-label {
+      height: $input-height;
+      margin-bottom: 0;
+      border-radius: 0.2rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+
+      &::after {
+        height: $input-height;
+        width: 7rem;
+        margin-top: -1px;
+        margin-right: -1px;
+        border: 1px solid $gray-400;
+        border-radius: 0 0.2rem 0.2rem 0;
+        padding: 0.25rem 0.5rem;
+        background-color: $primary;
+        line-height: 1.2;
+        color: $white;
+        text-align: center;
+        content: "Adjuntar";
+      }
+    }
+  }
+
+  .nested-fields {
+    .remove_fields {
+      position: absolute;
+      right: 0;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.8rem;
+      z-index: $zindex-dropdown;
+
+      &.dynamic {
+        @include btn-outline($warning);
+      }
+
+      &.existing {
+        @include btn-outline($danger);
+      }
+    }
+  }
+
+  .links {
+    .add_fields {
+      @include btn-outline($success);
+      padding: 0.15rem 0.5rem;
+      float: right;
+
+      span {
+        margin-right: 0.25rem;
+      }
+    }
+  }
+
+  .bootstrap-datetimepicker-widget {
+    table {
+      td.today:before {
+        border-bottom-color: $primary;
+        border-top-color: rgba($black, 0.2);
+      }
+
+      td.active,
+      td.active:hover {
+        background-color: $primary;
+        color: $white;
+      }
+
+      td span.active {
+        background-color: $primary;
+        color: $white;
+        text-shadow: 0 -1px 0 rgba($black, 0.25);
+      }
+
+      td span {
+        border-radius: 0.2rem;
+      }
+
+      td,
+      th {
+        border-radius: 0.2rem;
+      }
+    }
+  }
+}
+
+.filterrific-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 1rem 1rem 0;
+  background-color: $gray-100;
+
+  .form-container {
+    flex: 1;
+
+    label {
+      font-weight: normal;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    width: 12rem;
+    padding: 0 1rem 1rem 1rem;
+
+    .btn {
+      height: $input-height;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .spinner {
+      margin: -0.25rem 0;
+      font-size: 1.5em;
+      color: $primary;
+    }
+  }
+}
+
+.form-check {
+  margin-bottom: 0.75rem;
+  padding-left: 0;
+
+  &.has-danger {
+    .invalid-feedback {
+      display: inline-block;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    .form-check-label {
+      &::before {
+        color: $danger;
+      }
+    }
+  }
+
+  .form-check-input {
+    display: none;
+
+    &:checked ~ .form-check-label::before {
+      font-weight: 900;
+      color: $primary;
+      content: "\f14a";
+    }
+  }
+
+  .form-check-label {
+    position: relative;
+    padding-left: 1.25rem;
+
+    &::before {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      height: 1rem;
+      width: 1rem;
+      border-radius: 0.25rem;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400;
+      line-height: 1.7;
+      color: $gray-500;
+      content: "\f0c8";
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &.custom-control.custom-switch {
+    .custom-control-input {
+      display: none;
+    }
+
+    .custom-control-label {
+      position: relative;
+      padding-left: 2.25rem;
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        left: 0.15rem;
+      }
+    }
+  }
+}
+
+.form-group {
+  &.has-danger {
+    .invalid-feedback {
+      display: inline-block;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    input,
+    textarea,
+    select {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E");
+      border-color: $danger;
+      background-repeat: no-repeat;
+      background-size: 1rem 1rem;
+    }
+
+    input,
+    textarea {
+      padding-right: 3rem;
+      background-position: center right 1rem;
+    }
+
+    select {
+      padding-right: 3.5rem;
+      background-position: center right 1.5rem;
+    }
+
+    .custom-file {
+      .custom-file-label {
+        border-color: $danger;
+
+        &::after {
+          border-color: $danger;
+        }
+      }
+    }
+  }
+  .recipients-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // flex: 1 1 0px;
+      flex: 0 0 32%;
+      margin: 0.25rem 0;
+
+      .btn {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

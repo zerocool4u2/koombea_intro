@@ -1,0 +1,12 @@
+- if flash[:notice]
+  = display_alert class: 'alert-success'
+    = flash[:notice].html_safe
+    = flash[:alert].html_safe if flash[:alert]
+    = flash[:error].html_safe if flash[:error]
+- elsif flash[:alert]
+  = display_alert class: 'alert-warning'
+    = flash[:alert].html_safe
+    = flash[:error].html_safe if flash[:error]
+- elsif flash[:error]
+  = display_alert class: 'alert-danger'
+    = flash[:error].html_safe

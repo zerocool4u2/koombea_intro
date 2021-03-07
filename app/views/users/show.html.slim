@@ -1,0 +1,16 @@
+= header @user do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb User.pluralize, users_path
+  = h.buttons
+    = link_to_action :prev, @user, html_class: 'btn btn-outline-primary'
+    = link_to_action :next, @user, html_class: 'btn btn-outline-primary'
+    = link_to_action :edit, @user, html_class: 'btn btn-outline-warning'
+    = link_to_action :destroy, @user, html_class: 'btn btn-outline-danger'
+
+= dbox_for @user do |c|
+  .col-12.col-lg-6
+    section
+      h3 = t(:general, scope: [:admin_helper, :headings])
+      .row
+        .col-12.col-xl-6
+          = c.content :email

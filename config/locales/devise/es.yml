@@ -1,0 +1,66 @@
+es:
+  devise:
+    confirmations:
+      confirmed: Tu dirección de correo electrónico ha sido confirmada con éxito.
+      send_instructions: Recibirás un correo con instrucciones para confirmar tu dirección de correo electrónico en unos pocos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico ya existe en nuestra base de datos, recibirá un correo con instrucciones para confirmar tu dirección de correo electrónico en unos pocos minutos.
+    failure:
+      already_authenticated: Ya has iniciado sesión.
+      inactive: Tu cuenta no ha sido activada.
+      invalid: "%{authentication_keys} o contraseña inválidos."
+      invited: "Tienes una invitación pendiente, acéptala para terminar el proceso de registro."
+      locked: Tu cuenta esta bloqueada.
+      last_attempt: Tienes un intento más antes de que tu cuenta sea bloqueada.
+      not_found_in_database: "%{authentication_keys} o contraseña incorrectos."
+      timeout: Tu sesión ha finalizado. Por favor inicia sesión de nuevo para continuar.
+      unauthenticated: Es necesario iniciar sesión o registrarse antes de continuar.
+      unauthenticated: Es necesario iniciar sesión antes de continuar.
+      unconfirmed: Tienes que confirmar tu dirección de correo electrónico antes de continuar.
+      account_expired: Lo sentimos, esta cuenta ha expirado.
+      account_inabilited: Lo sentimos, esta cuenta ha sido inhabilitada.
+    omniauth_callbacks:
+      failure: No pudimos acceder a tu cuenta de %{kind}, debido a "%{reason}"
+      failure_register: Parece que no se pudo obtener la información que necesitas de la plataforma, prueba con otro servicio, tu cuenta se vinculará en base en tu dirección de correo electrónico.
+      success: Sesión vía %{kind} iniciada con éxito.
+      success_but_unconfirmed: Sesión vía %{kind} iniciada con éxito. Te enviamos un email con instrucciones para confirmar tu dirección de correo electrónico.
+    passwords:
+      no_token: No puedes acceder a esta página sin un mensaje de restablecimiento de contraseña. Si vienes de un mensaje de restablecimiento de contraseña, por favor asegúrate de que utilizaste la URL completa proporcionada.
+      send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en pocos minutos.
+      send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos pocos minutos.
+      updated: Tu contraseña ha sido cambiada exitosamente. Has iniciado sesión.
+      updated_not_active: Tu contraseña ha sido cambiada exitosamente.
+    registrations:
+      destroyed: Adiós. Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
+      signed_up: ¡Bienvenido! Te has registrado con éxito.
+      signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no hemos podido iniciar sesión debido a que tu cuenta aún no ha sido activado.
+      signed_up_but_locked: Te has registrado con éxito. Sin embargo, no hemos podido iniciar sesión debido a que tu cuenta se encuentra bloqueada.
+      signed_up_but_unconfirmed: Un mensaje con un enlace de confirmación ha sido enviado a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
+      update_needs_confirmation: Has actualizado tu cuenta con éxito, pero necesitamos verificar tu nueva dirección de correo. Por favor, consulta tu correo electrónico y sigue el enlace de confirmación para confirmar tu nueva dirección de correo.
+      updated: Tu cuenta ha sido actualizada correctamente.
+    sessions:
+      signed_in: Sesión iniciada con éxito.
+      signed_in_but_unconfirmed: Un mensaje con un enlace de confirmación ha sido enviado a tu dirección de correo electrónico. Por favor, sigue el enlace para activar tu cuenta.
+      signed_out: Sesión terminada con éxito.
+      already_signed_out: Sesión terminada con éxito.
+    unlocks:
+      send_instructions: Recibirás un correo electrónico con instrucciones para desbloquear tu cuenta en pocos minutos.
+      send_paranoid_instructions: Si la cuenta existe, recibirás un correo electrónico con instrucciones sobre cómo desbloquearla en pocos minutos.
+      unlocked: Tu cuenta ha sido desbloqueada con éxito. Por favor inicia sesión para continuar.
+    invitations:
+      send_instructions: "Una invitación ha sido enviada a %{email}."
+      invitation_token_invalid: "El token de invitación no es válido"
+      updated: "Tu contraseña se ha guardado con éxito, sesión iniciada."
+      updated_not_active: "Tu contraseña se ha guardado con éxito, ya te encuentras registrado en el sistema."
+      no_invitations_remaining: "No quedan más invitaciones"
+      unathorized_inviter: "Usted no está autorizado a enviar invitaciones"
+  errors:
+    messages:
+      already_confirmed: ya se confirmó, intenta acceder.
+      invitation_active: tienes una invitación pendiente
+      confirmation_period_expired: debe ser confirmada dentro de %{period}, por favor solicita uno nuevo correo de confirmación.
+      expired: ha caducado, por favor solicita uno nuevo
+      not_found: no encontrado
+      not_locked: no estaba bloqueado
+      not_saved:
+        one: "1 error prohibió que este %{resouce} sea guardado:"
+        other: "%{count} errores prohibieron que estos %{resouce} se guarden:"

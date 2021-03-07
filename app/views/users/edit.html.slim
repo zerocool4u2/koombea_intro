@@ -1,0 +1,6 @@
+= header t(:edit, scope: [:admin_helper, :headings], model: @user) do |h|
+  = h.breadcrumbs do |b|
+    = b.breadcrumb User.pluralize, users_path
+    = b.breadcrumb @user, @user
+
+== render 'form'

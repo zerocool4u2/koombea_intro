@@ -1,0 +1,156 @@
+aside {
+  display: flex;
+  flex-direction: column;
+
+  .navbar {
+    justify-content: center;
+  }
+
+  & > ul.nav {
+    & > li.nav-item {
+      width: 5rem;
+    }
+
+    &.active > li.nav-item {
+      width: 17rem;
+    }
+  }
+
+  ul.nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding-left: 0;
+    background-color: $white;
+    font-weight: 400;
+    list-style: none;
+
+    li.nav-item {
+      display: flex;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+      transition: width 0.5s ease-out;
+
+      .nav-link {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+        padding: 0;
+        line-height: 1.5rem;
+        color: $gray-600;
+        text-decoration: none;
+
+        i {
+          width: 1.5rem;
+          line-height: 1.5rem;
+          text-align: center;
+        }
+
+        .chevron {
+          display: none;
+          width: 0.7rem;
+          font-size: 0.7rem;
+        }
+
+        .sidebar-text {
+          display: none;
+          flex: 1;
+          padding-left: 1rem;
+          white-space: nowrap;
+        }
+
+        &.collapsed {
+          i.fa-chevron-down::before {
+            content: "\f053";
+          }
+        }
+
+        &:hover,
+        &.active {
+          color: $primary;
+        }
+      }
+
+      &.nav-avatar {
+        padding: 0;
+        background: linear-gradient(to bottom, $primary 30%, $info);
+        text-align: center;
+        white-space: nowrap;
+        visibility: hidden;
+
+        .app-name {
+          margin-bottom: 1rem;
+
+          h6 {
+            font-weight: 600;
+            color: $white;
+          }
+        }
+
+        .nav-link {
+          display: none;
+
+          .user-display {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: $white;
+            text-decoration: none;
+          }
+
+          .avatar-info {
+            margin-top: 1rem;
+
+            h6 {
+              font-size: 0.875rem;
+              color: $gray-200;
+            }
+          }
+        }
+
+        img {
+          height: 3rem;
+          width: 3rem;
+          margin: -0.25rem 1rem -0.25rem 0;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &.active {
+      li.nav-item {
+        &.nav-avatar {
+          padding: 0 1rem 1rem;
+          visibility: visible;
+
+          .nav-link {
+            display: inline;
+          }
+        }
+
+        .nav-link {
+          .chevron,
+          .sidebar-text {
+            display: inline;
+          }
+        }
+      }
+    }
+
+    &.collapse:not(.show) {
+      display: none;
+    }
+
+    &:not(.active) {
+      ul.nav.collapse.show,
+      ul.nav.collapsing {
+        display: none;
+      }
+    }
+
+    ul.nav {
+      padding-left: 1.5rem;
+      background-color: $gray-100;
+    }
+  }
+}

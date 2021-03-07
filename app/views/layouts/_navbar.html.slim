@@ -1,0 +1,16 @@
+- if user_signed_in?
+  nav.navbar
+    ul.nav
+      li.nav-item.dropdown.hidden-xs
+        = link_to '#', class: 'nav-link navbar-avatar', data: { toggle: 'dropdown' }
+          span
+            = current_user
+            = icon 'fas', 'chevron-down', class: 'pl-2'
+        .dropdown-menu.dropdown-menu-right
+          = link_to edit_user_registration_path, class: 'dropdown-item'
+            = icon 'fas', 'user-cog'
+            = t '.edit_user'
+          span.navbar-divider
+          = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item'
+            = icon 'fas', 'sign-out-alt'
+            = t '.sign_out'

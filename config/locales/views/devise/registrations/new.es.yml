@@ -1,0 +1,9 @@
+es:
+  devise:
+    registrations:
+      new:
+        title: Registro
+        description: Ingresa tu email y una nueva contraseña para acceder al panel de administración.
+        submit: Registrarse
+        hints:
+          password: Mínimo 6 caracteres

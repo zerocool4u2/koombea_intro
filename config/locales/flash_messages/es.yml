@@ -1,0 +1,56 @@
+es:
+  flash_messages:
+    actions:
+      create:
+        notice:
+          male: 'El %{resource_name} ha sido creado con éxito'
+          female: 'La %{resource_name} ha sido creada con éxito'
+        alert:
+          male: 'Este %{resource_name} no pudo ser creado'
+          female: 'Esta %{resource_name} no pudo ser creada'
+        error:
+          male: 'Este %{resource_name} no pudo ser creado'
+          female: 'Esta %{resource_name} no pudo ser creada'
+      update:
+        notice:
+          male: 'El %{resource_name} ha sido actualizado con éxito'
+          female: 'La %{resource_name} ha sido actualizada con éxito'
+        alert:
+          male: 'No pudimos actualizar este %{resource_name}'
+          female: 'No pudimos actualizar esta %{resource_name}'
+        error:
+          male: 'No pudimos actualizar este %{resource_name}'
+          female: 'No pudimos actualizar esta %{resource_name}'
+      destroy:
+        notice:
+          male: 'El %{resource_name} ha sido eliminado con éxito'
+          female: 'La %{resource_name} ha sido eliminada con éxito'
+        alert:
+          male: 'No pudimos eliminar este %{resource_name}'
+          female: 'No pudimos eliminar esta %{resource_name}'
+        error:
+          male: 'No pudimos eliminar este %{resource_name}'
+          female: 'No pudimos eliminar esta %{resource_name}'
+      send:
+        notice:
+          male: 'El %{resource_name} ha sido enviado con éxito'
+          female: 'La %{resource_name} ha sido enviada con éxito'
+        alert:
+          male: 'No pudimos enviar este %{resource_name}'
+          female: 'No pudimos enviar esta %{resource_name}'
+        error:
+          male: 'No pudimos enviar este %{resource_name}'
+          female: 'No pudimos enviar esta %{resource_name}'
+      devise:
+        notice:
+          male: Acción completada con éxito
+          female: Acción completada con éxito
+        alert:
+          male: 'No pudimos completar esta acción'
+          female: 'No pudimos completar esta acción'
+        error:
+          male: 'No pudimos completar esta acción'
+          female: 'No pudimos completar esta acción'
+      problems:
+        one: ', por favor revisa el siguiente problema:'
+        other: ', por favor revisa los siguientes %{count} problemas:'

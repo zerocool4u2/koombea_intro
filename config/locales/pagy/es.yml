@@ -1,0 +1,17 @@
+es:
+  pagy:
+    # item_name:
+    #   one: "ítem"
+    #   other: "ítems"
+    nav:
+      first: "<i class='fas fa-angle-double-left'></i> Primera"
+      last: "Última <i class='fas fa-angle-double-right'></i>"
+      prev: "<i class='fas fa-angle-left'></i> Anterior"
+      next: "Siguiente <i class='fas fa-angle-right'></i>"
+      # gap: "<i class='fas fa-ellipsis-h'></i>"
+    info:
+      no_items: "No existen elementos"
+      single_page: "Mostrando <b>%{count}</b> %{item_name}"
+      multiple_pages: "Mostrando <b>%{from} - %{to}</b> %{item_name} de un total de <b>%{count}</b>"
+    # combo_nav_js: "Página %{page_input} de %{pages}"
+    # items_selector_js: "Mostrar %{items_input} %{item_name} por página"

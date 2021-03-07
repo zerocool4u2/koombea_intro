@@ -1,0 +1,59 @@
+.alert {
+  margin-top: 1rem;
+
+  p {
+    margin: 0;
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+}
+
+.alert-dismissible {
+  padding-right: 3rem;
+
+  button.close {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-outline-warning,
+.btn-outline-warning:not(:disabled):not(.disabled):active {
+  @include btn-outline($warning);
+}
+
+.btn-warning {
+  @include btn($warning);
+}
+
+ul.pagination {
+  li.page-item.active {
+    a.page-link {
+      &:not([href]):not([tabindex]) {
+        &:hover,
+        &:focus {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+}
+
+.checks-mantenimiento-form {
+  .form-group {
+    margin: 0;
+
+    textarea.form-control {
+      height: 3rem;
+    }
+  }
+}
+
+.nav-tabs-check-mantenimiento {
+  justify-content: flex-end;
+  margin-top: -2rem;
+}

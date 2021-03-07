@@ -1,0 +1,16 @@
+es:
+  attributes:
+    id: id
+    nombre: Nombre
+    email: Email
+    actions: Acciones
+  activerecord:
+    attributes:
+      # SimpleForm required icon
+      required:
+        html: <abbr title="requerido"><i class="fas fa-exclamation-circle text-primary"></i></abbr>
+      user:
+        password: Contraseña
+        current_password: Contraseña Actual
+        password_confirmation: Confirmar Contraseña
+        remember_me: Recordarme

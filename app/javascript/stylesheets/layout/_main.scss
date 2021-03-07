@@ -1,0 +1,303 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: $gray-200;
+
+  aside {
+    background-color: $white;
+  }
+
+  main {
+    flex: 1;
+    padding-bottom: 4rem;
+  }
+
+  .container-fluid {
+    padding: 0 1rem;
+  }
+}
+
+header.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+
+  h1 {
+    margin: 0;
+  }
+
+  .links-container {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      border-radius: 0.2rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+
+      i {
+        width: 1.25rem;
+        text-align: center;
+      }
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .breadcrumb {
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    padding: 0;
+    background: none;
+
+    .breadcrumb-item {
+      i.fas {
+        margin-right: 0.2rem;
+      }
+
+      &::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+.table {
+  @extend .table-bordered;
+  @extend .table-hover;
+  @extend .table-sm;
+
+  tbody {
+    background-color: $white;
+  }
+
+  thead {
+    th {
+      a.sort-column {
+        color: $white;
+        text-decoration: none;
+
+        &.active::after {
+          content: none;
+        }
+
+        &::after {
+          padding-left: 0.5rem;
+          font-family: "Font Awesome 5 Free";
+          font-size: 0.9rem;
+          font-weight: 900;
+          content: "\f0dc";
+        }
+      }
+    }
+  }
+
+  .table-right {
+    text-align: right;
+  }
+
+  .table-center {
+    text-align: center;
+
+    .table-nowrap {
+      white-space: nowrap;
+
+      .modal {
+        white-space: normal;
+      }
+    }
+
+    .content-center {
+      margin: auto;
+
+      .modal {
+        text-align: left;
+      }
+
+      a {
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        i {
+          width: 1.25rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.dowload-link-container {
+  display: flex;
+  justify-content: flex-end;
+
+  .download-link {
+    display: flex;
+    font-weight: 700;
+
+    i {
+      padding-right: 0.5rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.description-box-inverse {
+  .row {
+    margin: 0;
+  }
+
+  dl {
+    background-color: $gray-800;
+    line-height: 2;
+    color: $white;
+
+    dt,
+    dd {
+      margin: 0;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.img-fluid-vertical {
+  display: block;
+  max-height: calc(100% - 2rem);
+  max-width: 100%;
+  margin: auto;
+}
+
+section {
+  height: calc(100% - 1rem);
+  margin-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  background-color: $gray-100;
+
+  &.section-sm {
+    padding: 0.5rem;
+  }
+
+  &.bg-gray {
+    background-color: $gray-200;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    width: 100%;
+
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      .fa,
+      .fas,
+      .far,
+      .fal,
+      .fad,
+      .fab {
+        line-height: 2;
+        font-size: 75%;
+      }
+    }
+  }
+}
+dl.display-box-container {
+  @include make-row();
+
+  dd.checkbox {
+    font-weight: bold;
+
+    i {
+      padding-right: 0.5rem;
+    }
+  }
+
+  dd {
+    min-height: 1.5rem;
+  }
+}
+
+.badge {
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 90%;
+  font-weight: normal;
+
+  &.badge-primary {
+    background-color: rgba($primary, 0.75);
+  }
+}
+
+.email-list {
+  .form-group {
+    margin-bottom: 0.3rem;
+  }
+
+  label {
+    width: 100%;
+  }
+}
+
+.dashboard {
+  header {
+    h1 {
+      small {
+        font-size: 0.75em;
+        color: $gray-700;
+      }
+    }
+  }
+
+  .card-deck {
+    .card {
+      min-width: 25rem;
+      margin-bottom: 2rem;
+      border-color: $primary;
+
+      .card-header {
+        background-color: $primary;
+        border-color: $primary;
+
+        .card-title {
+          text-align: center;
+
+          a {
+            color: $white;
+          }
+        }
+      }
+
+      .card-body {
+        .card-description {
+          color: $gray-700;
+          text-align: center;
+        }
+
+        .list-group {
+          margin: 1rem 0;
+        }
+      }
+
+      .card-footer {
+        background-color: $white;
+        border-color: $primary;
+      }
+    }
+  }
+}

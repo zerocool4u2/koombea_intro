@@ -1,0 +1,17 @@
+es:
+  admin_helper:
+    headings:
+      new: Crear %{model}
+      edit: Editar %{model}
+      general: General
+    actions:
+      new: Crear %{model}
+      add: Agregar %{model}
+      show: Ver %{model}
+      edit: Editar %{model}
+      destroy: Eliminar %{model}
+      prev: '%{model} anterior'
+      next: '%{model} siguiente'
+      select: Seleccionar
+    confirmations:
+      destroy: ¿Estás seguro que deseas eliminar %{model}?

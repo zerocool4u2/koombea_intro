@@ -1,0 +1,9 @@
+es:
+  activerecord:
+    models:
+      user:
+        one: Usuario
+        other: Usuarios
+      contact:
+        one: Contacto
+        other: Contactos

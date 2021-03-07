@@ -9,7 +9,7 @@ SimpleForm.setup do |config|
   config.button_class = 'btn'
   config.boolean_label_class = 'form-check-label'
   config.boolean_style = :inline
-  config.form_class = 'form-container'
+  config.default_form_class = 'form-container'
   config.i18n_scope = 'activerecord.attributes'
   config.translate_labels = true
   config.browser_validations = false

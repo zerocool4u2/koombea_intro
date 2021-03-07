@@ -1,0 +1,8 @@
+= table_for @users do |t|
+  = t.column :id, td_class: 'table-center', td: -> (obj)
+    - link_to(obj.id, obj)
+  = t.column :email
+  = t.column :actions, td_class: 'table-center', td: -> (obj)
+    - actions_generator(obj)
+
+  = t.footer paginate_with_info

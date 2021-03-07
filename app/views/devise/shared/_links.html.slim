@@ -1,0 +1,7 @@
+ul.list-unstyled
+  - unless controller_name == 'registrations'
+    li
+      = link_to t('.sign_up'), new_registration_path(resource_name)
+  - unless controller_name == 'sessions'
+    li
+      = link_to t('.sign_in'), new_session_path(resource_name)

@@ -1,0 +1,8 @@
+es:
+  devise:
+    sessions:
+      new:
+        title: Iniciar Sesión
+        description: Ingresa tu email y contraseña para acceder al panel de administración.
+        submit: Iniciar Sesión
+

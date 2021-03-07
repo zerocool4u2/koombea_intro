@@ -1,0 +1,6 @@
+es:
+  errors:
+    format: '%{attribute} %{message}'
+  activerecord:
+    errors:
+      models:

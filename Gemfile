@@ -39,13 +39,14 @@ gem 'slim-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'active_storage_validations'
-gem 'chosen-rails'
 
 # Users
 gem 'devise'
 
 # Helpers
 gem 'draper' # Decorators helper
+gem 'premailer-rails'
+gem 'pagy'
 
 # Google Cloud and ActiveStorage
 gem 'google-cloud-storage'
@@ -68,9 +69,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  # Guard live reload, command -> bundle exec guard
-  gem 'guard-livereload', '~> 2.5', require: false
-  gem 'rack-livereload'
   # Coding Style
   gem 'rubocop'
   gem 'rubocop-rails'
@@ -84,7 +82,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'guard-test'
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers

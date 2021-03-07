@@ -1,0 +1,8 @@
+= devise_form_for :registration do |f|
+  .col-12
+    = f.input :email
+    = f.input :password, hint: t('.hints.password')
+    = f.input :password_confirmation
+    = render 'devise/shared/links'
+
+  = f.button :submit, t('.submit')
