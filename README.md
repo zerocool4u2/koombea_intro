@@ -1,11 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version developed
+* Ruby development version
   - Ruby 2.6.6
 
 * System dependencies
@@ -14,6 +9,10 @@ Things you may want to cover:
 
 * Configuration
   - create config/master.key file
+  - execute commands
+    - bundle install
+    - yarn
+    - rails db:migrate
+    - whenever -w
 
-* Database creation and initialization
-  - rails db:migrate
+* Start Application and sign in with user 'test@example.com' and password 'password'
