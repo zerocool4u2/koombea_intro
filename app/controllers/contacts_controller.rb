@@ -6,31 +6,35 @@ class ContactsController < ApplicationController
 
   # GET /contacts
   def index
+    @pagy, @contacts = pagy Contact.active
+
     respond_to do |format|
-      format.html do
-        @pagy, @contacts = pagy Contact.all
+      format.html
+
+      format.js do
+        render inline: render_list
       end
     end
   end
 
   # GET /contacts/1
   def show
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:id]).decorate
   end
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    @contact = Contact.new.decorate
   end
 
   # GET /contacts/1/edit
   def edit
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:id]).decorate
   end
 
   # POST /contacts
   def create
-    @contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params).decorate
 
     respond_to do |format|
       format.html do
@@ -47,7 +51,7 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /contacts/1
   def update
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:id]).decorate
 
     respond_to do |format|
       format.html do

@@ -3,6 +3,10 @@
     - link_to(obj.id, obj)
   = t.column :status, td: -> (obj)
     - obj.translated_status
+  = t.column :contacts, td_class: 'table-center', td: -> (obj)
+    - obj.contacts.count
+  = t.column :active_contacts, td_class: 'table-center', td: -> (obj)
+    - obj.contacts.active.count
   = t.column :actions, td_class: 'table-center', td: -> (obj)
     - actions_generator(obj)
 

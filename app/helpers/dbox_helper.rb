@@ -21,9 +21,10 @@ module DboxHelper
     def content(attribute_name, options = {})
       default_options = {
         object: @object,
+        method_name: attribute_name,
         label: nil,
         content: nil,
-        simple_format: false
+        simple_format: false,
       }
       options.reverse_merge! default_options
 
@@ -35,7 +36,7 @@ module DboxHelper
           content = if options[:content].present?
             options[:content].to_s
           else
-            options[:object].public_send(attribute_name).to_s
+            options[:object].public_send(options[:method_name]).to_s
           end
           options[:simple_format] ? simple_format(content) : content
         end

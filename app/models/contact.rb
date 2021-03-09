@@ -5,26 +5,43 @@ class Contact < ApplicationRecord
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where.not(active: true) }
 
+  attribute :skip_validations, :boolean
+  attribute :parsing_from_csv, :boolean
+
   belongs_to :csv_file, optional: true # Not every contact would come from a csv file
 
   before_validation :set_franchise
+  before_save :check_active, unless: -> { parsing_from_csv }
 
   # Alternative /\A[\-a-zA-Z]+\z/
   # http://www.micropress-inc.com/fonts/encoding/t1.htm
   # Support for letters, accents and minus symbol (-)
-  validates :name, presence: true, format: /\A[\-a-zA-Z\u0080-\u009B\u00A0-\u00BB\u00C0-\u00DD\u00E0-\u00FD]+\z/
+  validates :name, presence: true,
+    format: /\A[\-a-zA-Z\u0080-\u009B\u00A0-\u00BB\u00C0-\u00DD\u00E0-\u00FD]+\z/,
+    unless: -> { skip_validations? }
 
-  validates :email, presence: true, uniqueness: true, format: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+  validates :email, presence: true,
+    uniqueness: true, format: /\A[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z/,
+    unless: -> { skip_validations? }
 
-  validates :birthday, presence: true, iso_date_format: true
+  validates :birthday, presence: true,
+    iso_date_format: true,
+    unless: -> { skip_validations? }
 
-  validates :phone, presence: true
+  validates :phone, presence: true,
+    format: /\A\(\+\d{2}\) (\d{3}[ |-]){2}\d{2}[ |-]\d{2}\z/,
+    unless: -> { skip_validations? }
 
-  validates :address, presence: true
+  validates :address, presence: true,
+    unless: -> { skip_validations? }
 
-  validates :credit_card_number, presence: true, credit_card_format: true
+  validates :credit_card_number, presence: true,
+    credit_card_format: true,
+    unless: -> { skip_validations? }
 
-  validates :franchise, presence: true, if: -> { credit_card_number.present? }
+  validates :franchise, presence: true,
+    if: -> { credit_card_number.present? },
+    unless: -> { skip_validations? }
 
   def to_s
     name.present? ? name : name_was
@@ -34,6 +51,10 @@ class Contact < ApplicationRecord
   protected
   def set_franchise
     self.franchise = credit_card_number.present? ? CreditCardValidator::Validator.card_type(credit_card_number) : nil
+  end
+
+  def check_active
+    self.active = valid?
   end
 end
 

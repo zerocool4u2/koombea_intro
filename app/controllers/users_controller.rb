@@ -6,9 +6,13 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
+    @pagy, @users = pagy User.all
+
     respond_to do |format|
-      format.html do
-        @pagy, @users = pagy User.all
+      format.html
+
+      format.js do
+        render inline: render_list
       end
     end
   end

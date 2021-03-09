@@ -8,9 +8,32 @@
     = link_to_action :destroy, @csv_file, html_class: 'btn btn-outline-danger'
 
 = dbox_for @csv_file do |c|
-  .col-12.col-lg-6
+  .col-12
     section
       h3 = t(:general, scope: [:admin_helper, :headings])
       .row
         .col-12.col-xl-6
-          = c.content :status
+          = c.content :status, method_name: :translated_status
+        .col-12.col-xl-6
+          = c.content :file, content: link_to(@csv_file.filename, rails_blob_path(@csv_file.file, disposition: :attachment))
+      .row
+        .col-12
+          section
+            h3 = Contact.pluralize
+            .row
+              - @csv_file.contacts.each do |contact|
+                .col-12
+                  section.bg-gray
+                    .row
+                      .col-12.col-xl-6
+                        = c.content :name, object: contact
+                      .col-12.col-xl-6
+                        = c.content :birthday, object: contact
+                      .col-12.col-xl-6
+                        = c.content :phone, object: contact
+                      .col-12.col-xl-6
+                        = c.content :address, object: contact
+                      .col-12.col-xl-6
+                        = c.content :credit_card_number, object: contact, method_name: :credit_card_number_filtered
+                      .col-12.col-xl-6
+                        = c.content :email, object: contact

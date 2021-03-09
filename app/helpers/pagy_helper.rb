@@ -2,6 +2,13 @@
 # All Rights Reserved
 
 module PagyHelper
+  def render_list(collection_class = controller_name.classify.constantize)
+    # AJAX call
+    <<~JsERB.gsub(/\s+/, ' ').strip # clean up spaces
+      $('#results').html('<%= j render partial: "#{ collection_class.model_name.route_key }/list" %>');
+    JsERB
+  end
+
   def paginate_with_info
     capture do
       concat paginate_links

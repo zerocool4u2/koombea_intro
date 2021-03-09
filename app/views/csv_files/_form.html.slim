@@ -1,7 +1,7 @@
 = simple_form_for @csv_file do |f|
   .col-12
     section
-      h3 = t(:general, scope: [:admin_helper, :headings])
+      h2 = t(:general, scope: [:admin_helper, :headings])
       .row
         .col-12.col-lg-6
           = f.input :file
@@ -22,9 +22,13 @@
           = f.input :credit_card_number_column
         .col-12.col-lg-2
           = f.input :email_column
-
-        = f.simple_fields_for :contacts do |contact|
-          = render 'contact_fields', f: contact
-        = link_to_add_association_wrapper f, Contact
+      .row
+        .col-12
+          section
+            h3 = Contact.pluralize
+            .row
+              = f.simple_fields_for :contacts do |contact|
+                = render 'contact_fields', f: contact
+              = link_to_add_association_wrapper f, Contact
 
   = f.button :submit, class: 'btn btn-primary float-right'

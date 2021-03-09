@@ -6,35 +6,41 @@ class CsvFilesController < ApplicationController
 
   # GET /csv_files
   def index
+    @pagy, @csv_files = pagy CsvFile.all
+
     respond_to do |format|
-      format.html do
-        @pagy, @csv_files = pagy CsvFile.all
+      format.html
+
+      format.js do
+        render inline: render_list
       end
     end
   end
 
   # GET /csv_files/1
   def show
-    @csv_file = CsvFile.find(params[:id])
+    @csv_file = CsvFile.find(params[:id]).decorate
   end
 
   # GET /csv_files/new
   def new
-    @csv_file = CsvFile.new
+    @csv_file = CsvFile.new.decorate
   end
 
   # GET /csv_files/1/edit
   def edit
-    @csv_file = CsvFile.find(params[:id])
+    @csv_file = CsvFile.find(params[:id]).decorate
+    @csv_file.valid?
   end
 
   # POST /csv_files
   def create
-    @csv_file = CsvFile.new(csv_file_params)
+    @csv_file = CsvFile.new(csv_file_params).decorate
 
     respond_to do |format|
       format.html do
         if @csv_file.save
+          CsvParserJob.perform_later(@csv_file)
           flash_message_for @csv_file, :create, type: :notice
           redirect_to @csv_file
         else
@@ -47,19 +53,14 @@ class CsvFilesController < ApplicationController
 
   # PATCH/PUT /csv_files/1
   def update
-    @csv_file = CsvFile.find(params[:id])
+    @csv_file = CsvFile.find(params[:id]).decorate
 
     respond_to do |format|
       format.html do
         if @csv_file.update(csv_file_params)
-          # TODO move to job and evaluate on the background
-          if @csv_file.parse_contacts.save
-            flash_message_for @csv_file, :update, type: :notice
-            redirect_to @csv_file
-          else
-            flash_message_for @csv_file, :update, request_method: :now, type: :alert
-            render :edit
-          end
+          CsvParserJob.perform_later(@csv_file)
+          flash_message_for @csv_file, :update, type: :notice
+          redirect_to @csv_file
         else
           flash_message_for @csv_file, :update, request_method: :now, type: :alert
           render :edit
@@ -89,7 +90,7 @@ class CsvFilesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def csv_file_params
     params.require(:csv_file).permit(
-      :file, :headers, :headers_format, :name_column, :email_column, :birthday_column, :phone_column, :address_column, :credit_card_number_column,
+      :file, :headers, :headers_format, :name_column, :birthday_column, :phone_column, :address_column, :credit_card_number_column, :email_column,
       contacts_attributes: [
         :id, :name, :birthday, :phone, :address, :credit_card_number, :email, :_destroy
     ]
