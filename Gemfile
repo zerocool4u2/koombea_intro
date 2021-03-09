@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -53,6 +53,12 @@ gem 'translate_enum'
 # Google Cloud and ActiveStorage
 gem 'google-cloud-storage'
 
+# Job manager
+gem 'daemons'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'whenever', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -80,6 +86,9 @@ group :development do
   # Addons for dev
   gem 'pry-rails'
   gem 'pry-byebug'
+  # Guard live reload, command -> bundle exec guard
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'rack-livereload'
 end
 
 group :test do

@@ -37,3 +37,11 @@ es:
         address_column: N° Columna Dirección
         credit_card_number_column: N° Columna Tarjeta de Crédito
         email_column: N° Columna Email
+        status: Estado
+        contacts: Contactos
+        active_contacts: Contactos sin errores
+        status_list:
+          waiting: En espera
+          processing: Procesando
+          fail: Fallido
+          done: Terminado
