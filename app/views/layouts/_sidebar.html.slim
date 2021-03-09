@@ -10,7 +10,6 @@
             = current_user
 
 
-      = sidebar_link_to root_path, text: t('.dashboard'), icon: 'tachometer-alt', controller_name: :home, action_name: :dashboard
-      = sidebar_link_to users_path, text: User.pluralize, icon: 'user'
-      = sidebar_link_to contacts_path, text: Contact.pluralize, icon: 'address-book'
       = sidebar_link_to csv_files_path, text: CsvFile.pluralize, icon: 'file-upload'
+      = sidebar_link_to contacts_path, text: Contact.pluralize, icon: 'address-book'
+      = sidebar_link_to users_path, text: User.pluralize, icon: 'user'

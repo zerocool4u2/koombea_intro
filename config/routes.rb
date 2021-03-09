@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :csv_files
 
   get 'home/index'
-  root 'home#index'
+  root 'csv_files#index'
 end

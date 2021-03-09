@@ -1,0 +1,5 @@
+es:
+  layouts:
+    navbar:
+      edit_user: Editar mi Cuenta
+      sign_out: Cerrar Sesión
