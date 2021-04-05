@@ -66,6 +66,10 @@ group :development, :test do
   gem 'bullet'
   gem 'ruby-debug-ide'
   gem 'debase'
+
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do
@@ -88,6 +92,7 @@ group :development do
   gem 'pry-byebug'
   # Guard live reload, command -> bundle exec guard
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rspec', require: false
   gem 'rack-livereload'
 end
 
@@ -97,6 +102,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

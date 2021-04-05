@@ -15,38 +15,38 @@ class CsvFile < ApplicationRecord
 
   validates :file, presence: true, content_type: ['text/csv', 'application/vnd.ms-excel']
   validates :name_column, presence: true, if: -> { not headers_format? }
-  validates :email_column, presence: true, if: -> { not headers_format? }
   validates :birthday_column, presence: true, if: -> { not headers_format? }
   validates :phone_column, presence: true, if: -> { not headers_format? }
   validates :address_column, presence: true, if: -> { not headers_format? }
   validates :credit_card_number_column,  presence: true, if: -> { not headers_format? }
+  validates :email_column, presence: true, if: -> { not headers_format? }
 
 
   before_validation :set_initial_status
 
   def to_s
     status_tag = " (#{ translated_status })" if status.present?
-    "#{ self.singularize } #{ id }#{ status_tag }"
+    "#{ singularize } #{ id }#{ status_tag }"
   end
 
   def parse_contacts
     case status
     when 'waiting'
       self.status = :processing
-      self.save
-      self.parse_contacts
+      save
+      parse_contacts
     when 'processing'
       status = parse_csv_file ? :done : :fail # parse_csv_file returns true if all contacts parsed were valid
-      self.update_attribute(:status, status) # avoid validations for contacts
+      update_attribute(:status, status) # avoid validations for contacts
     when 'fail'
-      if self.valid?
+      if valid?
         self.status = :done
-        self.save
+        save
       end
     when 'done'
-      unless self.valid?
+      unless valid?
         self.status = :fail
-        self.save
+        save
       end
     end
   end
@@ -57,13 +57,13 @@ class CsvFile < ApplicationRecord
     if new_record? and file.present?
       self.status = :waiting
     elsif file.attached? and file.attachment.id.nil?
-      byebug
       self.status = :waiting
     end
   end
 
   def get_headers_names
     headers_names = Hash.new
+
     if headers? and headers_format?
       headers_names[:name] = :nombre
       headers_names[:birthday] = :fecha_de_nacimiento
@@ -88,7 +88,7 @@ class CsvFile < ApplicationRecord
     all_contacts_valid = true
 
     CSV.parse(file.download, headers: headers, header_converters: :symbol) do |row|
-      contact = self.contacts.build(
+      contact = contacts.build(
         name: row[headers_names[:name]],
         birthday: row[headers_names[:birthday]],
         phone: row[headers_names[:phone]],
@@ -101,15 +101,13 @@ class CsvFile < ApplicationRecord
       if contact.valid?
         contact.active = true
         contact.skip_validations = true
-        contact.save
       else
         contact.active = false
         contact.skip_validations = true
-        contact.save
         all_contacts_valid = false
       end
     end
-
+    save
     all_contacts_valid
   end
 end
