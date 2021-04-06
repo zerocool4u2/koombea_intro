@@ -1,3 +1,6 @@
+# Copyright (c) 2021 Alexis Ramis.
+# All Rights Reserved
+
 module ControllerMacros
   def login_user
     before(:each) do

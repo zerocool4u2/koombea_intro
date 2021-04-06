@@ -2,7 +2,6 @@
 # All Rights Reserved
 
 require 'rails_helper'
-require_relative '../support/devise'
 
 RSpec.describe CsvFilesController, 'Routes', type: :routing do
   # CRUD from resources
