@@ -24,7 +24,7 @@ Performance:
 Style/Copyright:
   Enabled: true
   Notice: '^# Copyright \(c\) 20[0-9]{2} Alexis Ramis\.$'
-  AutocorrectNotice: "# Copyright (c) 2021 Alexis Ramis.\n# All Rights Reserved\n\n# Overview"
+  AutocorrectNotice: "# Copyright (c) 2021 Alexis Ramis.\n# All Rights Reserved\n"
 
 Layout/ClassStructure:
   Enabled: true

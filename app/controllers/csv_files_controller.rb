@@ -19,7 +19,7 @@ class CsvFilesController < ApplicationController
 
   # GET /csv_files/1
   def show
-    @csv_file = CsvFile.find(params[:id]).decorate
+    @csv_file = CsvFile.includes(:contacts).find(params[:id]).decorate
   end
 
   # GET /csv_files/new
@@ -29,7 +29,7 @@ class CsvFilesController < ApplicationController
 
   # GET /csv_files/1/edit
   def edit
-    @csv_file = CsvFile.find(params[:id]).decorate
+    @csv_file = CsvFile.includes(:contacts).find(params[:id]).decorate
     @csv_file.valid?
   end
 

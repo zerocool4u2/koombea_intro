@@ -11,13 +11,13 @@ class Contact < ApplicationRecord
   belongs_to :csv_file, optional: true # Not every contact would come from a csv file
 
   before_validation :set_franchise
-  before_save :check_active, unless: -> { parsing_from_csv }
+  before_save :check_active, unless: -> { parsing_from_csv? }
 
-  # Alternative /\A[\-a-zA-Z]+\z/
+  # Alternative /\A[ \-a-zA-Z]+\z/
   # http://www.micropress-inc.com/fonts/encoding/t1.htm
   # Support for letters, accents and minus symbol (-)
   validates :name, presence: true,
-    format: /\A[\-a-zA-Z\u0080-\u009B\u00A0-\u00BB\u00C0-\u00DD\u00E0-\u00FD]+\z/,
+    format: /\A[' \-a-zA-Z\u0080-\u009B\u00A0-\u00BB\u00C0-\u00DD\u00E0-\u00FD]+\z/,
     unless: -> { skip_validations? }
 
   validates :email, presence: true,
