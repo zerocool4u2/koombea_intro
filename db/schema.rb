@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_095626) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "csv_file_id"
-    t.boolean "active"
+    t.boolean "active", default: false
     t.index ["csv_file_id"], name: "index_contacts_on_csv_file_id"
   end
 

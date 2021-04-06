@@ -61,12 +61,12 @@ class Contact < ApplicationRecord
 end
 
 # == Schema Information
-# Schema version: 20210307100046
+# Schema version: 20210309095626
 #
 # Table name: contacts
 #
 #  id                 :integer          not null, primary key
-#  active             :boolean
+#  active             :boolean          default(FALSE)
 #  address            :string
 #  birthday           :string
 #  credit_card_number :string
