@@ -50,4 +50,29 @@ RSpec.describe CsvFile, type: :model do
       it { is_expected.to validate_presence_of(:email_column) }
     end
   end
+
+  describe '#parse_contacts' do
+    context 'on create' do
+      it 'should initialize with status waiting'
+      it 'should pass from waiting to processing'
+
+      it 'should call parse_csv_file and pass from processing to fail or done'
+
+      context 'done' do
+        it 'should have all valid contacts'
+        it 'should end with status done'
+        it 'should validate itself and contacts'
+        it 'should do nothing if all valid'
+        it 'should pass to fail if at least one fail'
+      end
+
+      context 'fail' do
+        it 'should have at least one invalid contact'
+        it 'should end with status fail'
+        it 'should validate itself and contacts'
+        it 'should do nothing if at least one fail'
+        it 'should pass to done if all valid'
+      end
+    end
+  end
 end
